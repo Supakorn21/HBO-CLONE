@@ -1,5 +1,6 @@
 import React from "react";
-import Header from "../UI/Header";
+import Header from "../UI/Header/Header";
+import SideNav from "../UI/SideNav/SideNav";
 
 const MainLayout = ({ children }) => {
   return (
@@ -7,11 +8,13 @@ const MainLayout = ({ children }) => {
       <div
         style={{
           background:
-            "linear-gradient(0deg, rgba(45,253,239,1) 0%, rgba(45,34,195,1) 100%)",
+            " linear-gradient(307deg, rgba(0,0,0,1) 55%, rgba(30,24,98,1) 100%)",
           minHeight: "100vh",
+          backgroundAttachment: 'fixed'
         }}
       >
         <Header />
+        <SideNav/>
         <section className="content-container">{children}</section>
       </div>
     </>

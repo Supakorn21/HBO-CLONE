@@ -1,9 +1,19 @@
 @use 'reset';
 @use 'login';
 @use 'create-user';
-@use 'header';
+@use '../components/UI/Header/header';
+@use '../components/UI/SideNav/side-nav';
+@use '../components/UI/FeaturedMedia/featured-media';
+@use '../components/UI/ForYouList/ForYouList';
+@use '../components/UI/JustAdded/JustAdded';
+@use '../components/UI/PosterView/PosterView';
+
 
 
 h1 {
     font-size: 3rem;
+}
+
+html, body{
+    background: black;
 }

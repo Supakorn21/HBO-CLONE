@@ -24,7 +24,7 @@ export default function CreateUser() {
                 style={{
                   background: "rgb(2,27,64)",
                   background:
-                    "linear-gradient(0deg, rgba(45,253,239,1) 0%, rgba(45,34,195,1) 100%)",
+                    "linear-gradient(307deg, rgba(36,189,178,1) 0%, rgba(30,24,98,1) 100%)",
                 }}
               />
               <div
@@ -32,7 +32,7 @@ export default function CreateUser() {
                 style={{
                   background: "rgb(2,27,64)",
                   background:
-                    "linear-gradient(135deg, rgba(213,108,185,1) 0%, rgba(189,64,73,1) 78%)",
+                    "linear-gradient(307deg, rgba(28,42,110,1) 0%, rgba(87,24,37,1) 100%)",
                 }}
               />
               <div
@@ -40,7 +40,7 @@ export default function CreateUser() {
                 style={{
                   background: "rgb(2,27,64)",
                   background:
-                    "linear-gradient(0deg, rgba(45,253,139,1) 0%, rgba(34,195,166,1) 100%)",
+                    "linear-gradient(307deg, rgba(51,148,36,1) 0%, rgba(24,81,98,1) 100%)",
                 }}
               />
               <div
@@ -48,7 +48,7 @@ export default function CreateUser() {
                 style={{
                   background: "rgb(2,27,64)",
                   background:
-                    "linear-gradient(0deg, rgba(253,170,45,1) 0%, rgba(187,195,34,1) 100%)",
+                    "linear-gradient(307deg, rgba(100,108,27,1) 0%, rgba(75,53,21,1) 100%)",
                 }}
               />
               <div
@@ -56,7 +56,7 @@ export default function CreateUser() {
                 style={{
                   background: "rgb(2,27,64)",
                   background:
-                    "linear-gradient(0deg, rgba(253,69,45,1) 0%, rgba(195,98,34,1) 100%)",
+                    " linear-gradient(307deg, rgba(223,76,26,1) 0%, rgba(54,28,7,1) 100%)",
                 }}
               />
             </div>
