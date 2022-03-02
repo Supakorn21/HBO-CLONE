@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const PosterView = () => {
     const loopComp = (comp, digit) => {
         let thumbnails = [];

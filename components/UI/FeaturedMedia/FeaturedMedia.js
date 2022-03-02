@@ -11,7 +11,7 @@ const FeaturedMedia = () => {
           src="https://www.youtube.com/embed/mqqft2x_Aa4?autoplay=1&loop=1&start=16"
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
+          
         ></iframe>
         <div className="featured-media__bg">
           <div className="featured-media__container">
