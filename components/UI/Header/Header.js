@@ -1,4 +1,6 @@
 import React from "react";
+import Account from "../Account/Account";
+import SearchModal from "../SearchModal/SearchModal";
 
 const Header = () => {
   return (
@@ -17,6 +19,8 @@ const Header = () => {
             <img src="https://api.uifaces.co/our-content/donated/FJkauyEa.jpg" className="top-header__user-img"/>
             <div className="top-header__user-name">Tommy</div>
         </div>
+        <Account/>
+        <SearchModal/>
       </header>
     </>
   );
