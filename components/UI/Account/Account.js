@@ -1,35 +1,49 @@
 import Link from "next/link";
+import { useStateContext } from "../../HBOProvider";
+import { useClickOutSide } from "../../Hooks/useClickOutSide";
 
 const Account = (props) => {
-    const loopComp = (comp, digit) => {
-        let thumbnails = [];
-        for(let index = 1; index <= digit; index++) {
-          thumbnails.push(comp)
-        }
-    
-        return thumbnails;
-      }
+  const globalState = useStateContext();
 
+  const loopComp = (comp, digit) => {
+    let thumbnails = [];
+    for (let index = 1; index <= digit; index++) {
+      thumbnails.push(comp);
+    }
+
+    return thumbnails;
+  };
+
+  const domNode = useClickOutSide(() => {
+    globalState.setAccountModalOpenAction(false);
+  });
 
   return (
-    <div className="account ">
+    <div
+      ref={domNode}
+      className={`account ${
+        globalState.accountModalOpen ? "account--active" : ""
+      }`}
+    >
       <div className="account__details ">
         <div className="account__title">My List</div>
         <div className="account__watch-list">
-            {loopComp((<div className="account__watch-video">
-            <img src="https://www.slashfilm.com/img/gallery/heres-when-the-batman-will-begin-streaming-on-hbo-max/l-intro-1640632402.jpg" />
-            <div className="account__watch-overlay">
-              <div className="account__watch-buttons">
-                <div className="account__watch-circle">
-                  <i className="fas fa-play"></i>
-                </div>
-                <div className="account__watch-circle">
-                  <i className="fas fa-times"></i>
+          {loopComp(
+            <div className="account__watch-video">
+              <img src="https://www.slashfilm.com/img/gallery/heres-when-the-batman-will-begin-streaming-on-hbo-max/l-intro-1640632402.jpg" />
+              <div className="account__watch-overlay">
+                <div className="account__watch-buttons">
+                  <div className="account__watch-circle">
+                    <i className="fas fa-play"></i>
+                  </div>
+                  <div className="account__watch-circle">
+                    <i className="fas fa-times"></i>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>), 6)}
-          
+            </div>,
+            6
+          )}
         </div>
       </div>
       <div className="account__menu">

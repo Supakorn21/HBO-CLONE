@@ -1,11 +1,39 @@
 import { useStateContext } from "../components/HBOProvider";
-
-
+import localStorage from "local-storage";
+import { v4 as uuidv4 } from "uuid";
+import { useRouter } from "next/router";
 
 export default function CreateUser() {
-
   const globalState = useStateContext();
-  console.log(globalState)
+
+  const router = useRouter();
+
+  const saveUser = () => {
+    let users = [],
+      user;
+
+    if (localStorage("users") < 1) {
+      users = [];
+      user = {
+        id: uuidv4(),
+        user: globalState.user,
+        myListID: [],
+      };
+      users.push(user);
+      localStorage("users", users);
+      router.push("/login");
+    } else {
+      users = localStorage("users");
+      user = {
+        id: uuidv4(),
+        user: globalState.user,
+        myListID: [],
+      };
+      users.push(user);
+      localStorage("users", users);
+      router.push("/login");
+    }
+  };
   return (
     <div>
       <div className="create-user">
@@ -21,7 +49,12 @@ export default function CreateUser() {
           />
           <div className="create-user__input-group">
             <label>Name</label>
-            <input value={globalState.user} onChange={globalState.createUserAction} type="text" className="create-user__inputText" />
+            <input
+              value={globalState.user}
+              onChange={globalState.createUserAction}
+              type="text"
+              className="create-user__inputText"
+            />
             <div className="create-user__colors">
               <div
                 className="create-user__color create-user__color--active"
@@ -69,7 +102,7 @@ export default function CreateUser() {
 
         <div className="create-user__buttons">
           <button className="create-user__cancel">Cancel</button>
-          <button className="create-user__save">Save</button>
+          <button className="create-user__save" onClick={saveUser}>Save</button>
         </div>
       </div>
     </div>

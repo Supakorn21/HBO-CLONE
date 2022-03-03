@@ -8,7 +8,7 @@ const FeaturedMedia = () => {
           className="featured-media__video"
           width="100%"
           height="100%"
-          src="https://www.youtube.com/embed/mqqft2x_Aa4?autoplay=1&loop=1&start=16"
+          src="https://www.youtube.com/embed/mqqft2x_Aa4?autoplay=1&start=16&mute=1&loop=1"
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           

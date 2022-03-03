@@ -1,11 +1,27 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 import React from "react";
+import { useStateContext } from "../../HBOProvider";
+import { useClickOutSide } from "../../Hooks/useClickOutSide";
 
 const SideNav = () => {
+  const globalState = useStateContext();
+
+  const domNode = useClickOutSide(() => {
+    globalState.setSideNavOpenAction(false)
+  })
+
   return (
     <>
-      <div className="side-nav ">
-        <div className="side-nav__close-btn">
+      <div
+      ref={domNode}
+        className={`side-nav ${
+          globalState.sideNavOpen ? "side-nav--active" : ""
+        }`}
+      >
+        <div
+          className="side-nav__close-btn"
+          onClick={() => globalState.setSideNavOpenAction(false)}
+        >
           <i className="fas fa-times"></i>
         </div>
         <ul className="side-nav__main">

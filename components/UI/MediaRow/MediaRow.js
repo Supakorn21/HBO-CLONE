@@ -1,6 +1,6 @@
 import React from "react";
 
-const JustAdded = () => {
+const MediaRow = ({title, type}) => {
     const loopComp = (comp, digit) => {
         let thumbnails = [];
         for(let index = 1; index <= digit; index++) {
@@ -11,14 +11,14 @@ const JustAdded = () => {
       }
   return (
     <>
-      <div className="just-added">
-        <h3 className="just-added__title">Just Added</h3>
-        <div className="just-added__thumbnails">
+      <div className={`media-row ${type}`}>
+        <h3 className="media-row__title">{title}</h3>
+        <div className="media-row__thumbnails">
         
           {loopComp(
-            (<div className="just-added__thumbnail">
+            (<div className="media-row__thumbnail">
               <img src="https://cdn.shopify.com/s/files/1/0405/1927/0554/products/ScreenShot2021-02-17at12.45.47PM_631x950.png?v=1613599039" />
-              <div className="just-added__top-layer">
+              <div className="media-row__top-layer">
                 <i className="fas fa-play"/>  
               </div>  
             </div>), 10
@@ -30,4 +30,4 @@ const JustAdded = () => {
   );
 };
 
-export default JustAdded;
+export default MediaRow;
