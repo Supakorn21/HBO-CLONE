@@ -1,20 +1,19 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import {useRef} from 'react'
+import { useEffect } from "react";
+import { useRef } from "react";
 
 export const useClickOutSide = (handler) => {
   let domNode = useRef();
-useEffect(() => {
-  let maybeHandler = event => {
-     if (!domNode.current.contains (event.target)){
-       handler()
-     }
-    }
-  document.addEventListener ("mousedown", maybeHandler) ;
+  useEffect(() => {
+    let maybeHandler = (event) => {
+      if (!domNode.current.contains(event.target)) {
+        handler();
+      }
+    };
+    document.addEventListener("mousedown", maybeHandler);
 
-  return () => {
-    document.removeEventListener ("mousedown", maybeHandler );
-  }
-})
-return domNode
+    return () => {
+      document.removeEventListener("mousedown", maybeHandler);
+    };
+  });
+  return domNode;
 };

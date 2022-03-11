@@ -14,13 +14,11 @@ const Account = (props) => {
     return thumbnails;
   };
 
-  const domNode = useClickOutSide(() => {
-    globalState.setAccountModalOpenAction(false);
-  });
+
 
   return (
     <div
-      ref={domNode}
+      
       className={`account ${
         globalState.accountModalOpen ? "account--active" : ""
       }`}
