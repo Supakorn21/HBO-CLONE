@@ -38,20 +38,21 @@ const MediaRow = ({ title, type, endpoint }) => {
     return thumbnails;
   };
 
-  const showThumbnails = () => {
+  const showThumbnails = ({type}) => {
     return loadingData
       ? loopComp(<Skeleton />, 10)
       : moviesData.map((movie) => {
-          return <Thumbnail movieData={movie} />;
+          return <Thumbnail movieData={movie} type={type} />;
         });
   };
 
+ 
   return (
     <>
       <div className={`media-row ${type}`}>
         <h3 className="media-row__title">{title}</h3>
         <div className="media-row__thumbnails">
-          {showThumbnails()}
+          {showThumbnails({type})}
 
           {/* {loopComp(<Thumbnail />, 10)} */}
         </div>
@@ -60,11 +61,26 @@ const MediaRow = ({ title, type, endpoint }) => {
   );
 };
 
-const Thumbnail = ({ movieData }) => {
+const Thumbnail = ({ movieData,type }) => {
+  const thumbSize = (type) => {
+    if (type === "large-v") {
+			return "400";
+		}
+		if (type === "small-v") {
+			return "185";
+		}
+		if (type === "large-h") {
+			return "500";
+		}
+		if (type === "small-h") {
+			return "342";
+		}
+  };
+
   return (
     <div className="media-row__thumbnail">
       <img
-        src={`https://image.tmdb.org/t/p/original${movieData.poster_path}`}
+        src={`https://image.tmdb.org/t/p/w${thumbSize(type)}/${movieData.poster_path}`}
       />
       <div className="media-row__top-layer">
         <i className="fas fa-play" />
