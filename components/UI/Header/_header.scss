@@ -11,6 +11,7 @@
     width: 100%;
     z-index: 10;
     transition: background .3s ease-in-out;
+   
     &--menu-open{
         background: black;
     }
@@ -23,6 +24,7 @@
         width: 129px;
         background-image: url(/img/logo.svg);
         transform: scale(.9);
+        cursor: pointer;
     }
     &__left-side{
         display: flex;

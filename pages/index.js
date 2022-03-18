@@ -20,9 +20,14 @@ export default function Home() {
 
   return AuthCheck(
     <MainLayout>
-      <FeaturedMedia />
+      <FeaturedMedia
+        mediaUrl="https://www.youtube.com/embed/mqqft2x_Aa4?autoplay=1&start=16&mute=1&loop=1"
+        title="THE BATMAN"
+        location="In theaters and on HBO MAX. Streaming throughout March 3."
+        linkUrl="/movie/414906"
+        type="front"
+      />
       <LazyLoad
-        
         offset={-400}
         placeholder={<PlaceHolders title="Movies" type="large-v" />}
       >
@@ -33,7 +38,6 @@ export default function Home() {
         />
       </LazyLoad>
       <LazyLoad
-        
         offset={-400}
         placeholder={<PlaceHolders title="Series" type="small-v" />}
       >
@@ -44,7 +48,6 @@ export default function Home() {
         />
       </LazyLoad>
       <LazyLoad
-        
         offset={-400}
         placeholder={<PlaceHolders title="Action" type="small-v" />}
       >
@@ -55,7 +58,6 @@ export default function Home() {
         />
       </LazyLoad>
       <LazyLoad
-        
         offset={-400}
         placeholder={<PlaceHolders title="Horror" type="large-v" />}
       >
@@ -66,8 +68,9 @@ export default function Home() {
         />
       </LazyLoad>
       <LazyLoad
-        
-        placeholder={<PlaceHolders title="Animations" type="large-h" offset={-400} />}
+        placeholder={
+          <PlaceHolders title="Animations" type="large-h" offset={-400} />
+        }
       >
         <MediaRow
           title="Animations"
@@ -76,7 +79,6 @@ export default function Home() {
         />
       </LazyLoad>
       <LazyLoad
-       
         offset={-400}
         placeholder={<PlaceHolders title="SciFi" type="small-v" />}
       >

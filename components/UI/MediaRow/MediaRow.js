@@ -3,6 +3,7 @@ import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
 import { shuffleArray } from "../../Utilities";
+import Link from "next/link";
 
 const MediaRow = ({ title, type, endpoint }) => {
   const [loadingData, setLoadingData] = useState(true);
@@ -38,7 +39,7 @@ const MediaRow = ({ title, type, endpoint }) => {
     return thumbnails;
   };
 
-  const showThumbnails = ({type}) => {
+  const showThumbnails = ({ type }) => {
     return loadingData
       ? loopComp(<Skeleton />, 10)
       : moviesData.map((movie) => {
@@ -46,13 +47,12 @@ const MediaRow = ({ title, type, endpoint }) => {
         });
   };
 
- 
   return (
     <>
       <div className={`media-row ${type}`}>
         <h3 className="media-row__title">{title}</h3>
         <div className="media-row__thumbnails">
-          {showThumbnails({type})}
+          {showThumbnails({ type })}
 
           {/* {loopComp(<Thumbnail />, 10)} */}
         </div>
@@ -61,31 +61,35 @@ const MediaRow = ({ title, type, endpoint }) => {
   );
 };
 
-const Thumbnail = ({ movieData,type }) => {
+const Thumbnail = ({ movieData, type }) => {
   const thumbSize = (type) => {
     if (type === "large-v") {
-			return "400";
-		}
-		if (type === "small-v") {
-			return "185";
-		}
-		if (type === "large-h") {
-			return "500";
-		}
-		if (type === "small-h") {
-			return "342";
-		}
+      return "400";
+    }
+    if (type === "small-v") {
+      return "185";
+    }
+    if (type === "large-h") {
+      return "500";
+    }
+    if (type === "small-h") {
+      return "342";
+    }
   };
 
   return (
-    <div className="media-row__thumbnail">
-      <img
-        src={`https://image.tmdb.org/t/p/w${thumbSize(type)}/${movieData.poster_path}`}
-      />
-      <div className="media-row__top-layer">
-        <i className="fas fa-play" />
+    <Link href={`/movie/${movieData.id}`}>
+      <div className="media-row__thumbnail">
+        <img
+          src={`https://image.tmdb.org/t/p/w${thumbSize(type)}/${
+            movieData.poster_path
+          }`}
+        />
+        <div className="media-row__top-layer">
+          <i className="fas fa-play" />
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
