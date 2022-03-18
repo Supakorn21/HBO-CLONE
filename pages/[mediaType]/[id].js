@@ -50,7 +50,7 @@ export default function SingleMediaPage
         placeholder={<PlaceHolders title="Movies" type="large-v" />}
       >
         <MediaRow
-          title="Similar To this"
+          title="Similar To This"
           type="small-v"
           mediaType={query.mediaType}
           endpoint={`${query.mediaType === 'movie' ? 'movie' : 'tv' }/${query.id}/similar?`}
