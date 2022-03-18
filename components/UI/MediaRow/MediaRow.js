@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { shuffleArray } from "../../Utilities";
 import Link from "next/link";
 
-const MediaRow = ({ title, type, endpoint }) => {
+const MediaRow = ({ title, type, endpoint, mediaType }) => {
   const [loadingData, setLoadingData] = useState(true);
   const [moviesData, setMoviesData] = useState([]);
 
@@ -43,7 +43,9 @@ const MediaRow = ({ title, type, endpoint }) => {
     return loadingData
       ? loopComp(<Skeleton />, 10)
       : moviesData.map((movie) => {
-          return <Thumbnail movieData={movie} type={type} />;
+          return (
+            <Thumbnail movieData={movie} type={type} mediaType={mediaType} />
+          );
         });
   };
 
@@ -61,7 +63,7 @@ const MediaRow = ({ title, type, endpoint }) => {
   );
 };
 
-const Thumbnail = ({ movieData, type }) => {
+const Thumbnail = ({ movieData, type, mediaType }) => {
   const thumbSize = (type) => {
     if (type === "large-v") {
       return "400";
@@ -78,7 +80,7 @@ const Thumbnail = ({ movieData, type }) => {
   };
 
   return (
-    <Link href={`/movie/${movieData.id}`}>
+    <Link href={`/${mediaType === 'movie' ? 'movie' : 'tv'}/${movieData.id}`}>
       <div className="media-row__thumbnail">
         <img
           src={`https://image.tmdb.org/t/p/w${thumbSize(type)}/${
@@ -101,4 +103,7 @@ const Skeleton = () => {
   );
 };
 
+MediaRow.defaultProps = {
+	mediaType: 'movie'
+}
 export default MediaRow;

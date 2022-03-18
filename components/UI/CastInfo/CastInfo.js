@@ -1,16 +1,16 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-const CastInfo = ({ mediaId }) => {
+const CastInfo = ({ mediaId, mediaType }) => {
   const [loadingData, setLoadingData] = useState(true);
   const [credits, setCredits] = useState([]);
-
+// 63174
   // This is an api for best movie in 2022
   // /discover/movie?with_genres=28&primary_release_year=2022
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/${mediaId}/credits?api_key=174406b9a949ae4ad6a40666c6a29393&language=en-US`
+        `https://api.themoviedb.org/3/${mediaType === 'movie' ? 'movie' : 'tv'}/${mediaId}/credits?api_key=174406b9a949ae4ad6a40666c6a29393&language=en-US`
       )
       .then(function (response) {
         setCredits(response.data);
@@ -24,7 +24,7 @@ const CastInfo = ({ mediaId }) => {
         console.log("Error response For Cast and Crew");
         console.log(error);
       });
-  }, []);
+  }, [credits]);
 
   const showCast = () => {
     if(loadingData !== true){

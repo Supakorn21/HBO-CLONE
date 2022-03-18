@@ -33,6 +33,7 @@ export default function Home() {
       >
         <MediaRow
           title="Movies"
+          mediaType="movie"
           type="large-v"
           endpoint="discover/movie?sort_by=popularity.desc&primary_release_year=2022"
         />
@@ -43,6 +44,7 @@ export default function Home() {
       >
         <MediaRow
           title="Series"
+          mediaType="series"
           type="small-v"
           endpoint="discover/tv?sort_by=popularity.desc&primary_release_year=2022"
         />
@@ -53,6 +55,7 @@ export default function Home() {
       >
         <MediaRow
           title="Action"
+          mediaType="movie"
           type="small-v"
           endpoint="discover/movie?with_genres=28&primary_release_year=2022"
         />
