@@ -14,34 +14,50 @@ import GenreNav from "../../components/UI/GenreNav/GenreNav";
 import axios from "axios";
 import { shuffleArray } from "../../components/Utilities";
 
-export default function MediaTypePage({ mediaData, query, genresData,featuredData }) {
+export default function MediaTypePage({
+  mediaData,
+  query,
+  genresData,
+  featuredData,
+}) {
   const router = useRouter();
 
   const globalState = useStateContext();
 
-  useEffect(() => {}, []);
+  const showRandomMedia = () => {
+    let thumbTypes;
+    return genresData.map((item) => {
+      thumbTypes = shuffleArray(globalState.thumbTypes)[0];
+      return (
+        <div key={item.id}>
+        <LazyLoad 
+          offset={-200}
+          placeholder={<PlaceHolders title={item.name} type={thumbTypes} />}
+        >
+          <MediaRow
+            title={item.name}
+            mediaType="movie"
+            type={thumbTypes}
+            endpoint={`discover/${query.mediaType}?with_genres=${item.id}sort_by=popularity.desc&primary_release_year=2022`}
+          />
+        </LazyLoad>
+        </div>
+      );
+    });
+  };
 
   return AuthCheck(
     <MainLayout>
       <FeaturedMedia
         mediaUrl={`https://image.tmdb.org/t/p/w1280${featuredData.backdrop_path}`}
-        title={query.mediaType === 'movie' ? featuredData.title : featuredData.name}
-        
+        title={
+          query.mediaType === "movie" ? featuredData.title : featuredData.name
+        }
         linkUrl={`/${query.mediaType}/${featuredData.id}`}
         type="single"
       />
       <GenreNav mediaType={query.mediaType} genresData={genresData} />
-      <LazyLoad
-        offset={-400}
-        placeholder={<PlaceHolders title="Movies" type="large-v" />}
-      >
-        <MediaRow
-          title="Movies"
-          mediaType="movie"
-          type="large-v"
-          endpoint="discover/movie?sort_by=popularity.desc&primary_release_year=2022"
-        />
-      </LazyLoad>
+      {showRandomMedia()}
     </MainLayout>
   );
 }

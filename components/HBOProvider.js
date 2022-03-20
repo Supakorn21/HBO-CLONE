@@ -12,7 +12,8 @@ export const HBOProvider = ({ children }) => {
   const [accountModalOpen, setAccountModalOpenAction] = useState(false);
   const [searchOpen, setSearchOpenAction] = useState(false);
 
-  
+  const thumbTypes = ["large-v", "small-v", "large-h", "small-h"];
+
   const defaultUserImg =
     "https://userstock.io/data/wp-content/uploads/2020/06/jack-finnigan-rriAI0nhcbc-1024x1024.jpg";
 
@@ -33,7 +34,8 @@ export const HBOProvider = ({ children }) => {
         accountModalOpen,
         setAccountModalOpenAction,
         searchOpen,
-        setSearchOpenAction
+        setSearchOpenAction,
+        thumbTypes
       }}
     >
       {children}
