@@ -30,7 +30,7 @@ const FeaturedMedia = ({ mediaUrl, title, location, linkUrl,type }) => {
 
   return (
     <>
-      <div className="featured-media">
+      <div className={`featured-media ${type === 'single' ? 'featured-media--single' : ''}`}>
         {showMedia()}
         <div className="featured-media__bg">
           <div className="featured-media__container">

@@ -44,7 +44,7 @@ const MediaRow = ({ title, type, endpoint, mediaType }) => {
       ? loopComp(<Skeleton />, 10)
       : moviesData.map((movie) => {
           return (
-            <Thumbnail movieData={movie} type={type} mediaType={mediaType} />
+            <Thumbnail key={movie.id} movieData={movie} type={type} mediaType={mediaType} />
           );
         });
   };
@@ -81,7 +81,7 @@ const Thumbnail = ({ movieData, type, mediaType }) => {
 
   return (
     <Link href={`/${mediaType === 'movie' ? 'movie' : 'tv'}/${movieData.id}`}>
-      <div className="media-row__thumbnail">
+      <div className="media-row__thumbnail" >
         <img
           src={`https://image.tmdb.org/t/p/w${thumbSize(type)}/${
             movieData.poster_path

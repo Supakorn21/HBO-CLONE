@@ -5,20 +5,17 @@ import { useClickOutSide } from "../../Hooks/useClickOutSide";
 const Account = (props) => {
   const globalState = useStateContext();
 
-  const loopComp = (comp, digit) => {
-    let thumbnails = [];
-    for (let index = 1; index <= digit; index++) {
-      thumbnails.push(comp);
-    }
+  // const loopComp = (comp, digit) => {
+  //   let thumbnails = [];
+  //   for (let index = 1; index <= digit; index++) {
+  //     thumbnails.push(comp);
+  //   }
 
-    return thumbnails;
-  };
-
-
+  //   return thumbnails;
+  // };
 
   return (
     <div
-      
       className={`account ${
         globalState.accountModalOpen ? "account--active" : ""
       }`}
@@ -26,22 +23,19 @@ const Account = (props) => {
       <div className="account__details ">
         <div className="account__title">My List</div>
         <div className="account__watch-list">
-          {loopComp(
-            <div className="account__watch-video">
-              <img src="https://www.slashfilm.com/img/gallery/heres-when-the-batman-will-begin-streaming-on-hbo-max/l-intro-1640632402.jpg" />
-              <div className="account__watch-overlay">
-                <div className="account__watch-buttons">
-                  <div className="account__watch-circle">
-                    <i className="fas fa-play"></i>
-                  </div>
-                  <div className="account__watch-circle">
-                    <i className="fas fa-times"></i>
-                  </div>
+          <div className="account__watch-video">
+            <img src="https://www.slashfilm.com/img/gallery/heres-when-the-batman-will-begin-streaming-on-hbo-max/l-intro-1640632402.jpg" />
+            <div className="account__watch-overlay">
+              <div className="account__watch-buttons">
+                <div className="account__watch-circle">
+                  <i className="fas fa-play"></i>
+                </div>
+                <div className="account__watch-circle">
+                  <i className="fas fa-times"></i>
                 </div>
               </div>
-            </div>,
-            6
-          )}
+            </div>
+          </div>
         </div>
       </div>
       <div className="account__menu">
