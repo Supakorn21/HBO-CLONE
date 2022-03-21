@@ -32,9 +32,9 @@ const GenreList = ({ genresData, mediaType }) => {
   return genresData.map((item) => {
     return(
       <li key={item.id}>
-          <Link href="/">
-            <a>{item.name}</a>
-          </Link>
+          <a href={`/${mediaType}/genre/${item.id}`}>
+            {item.name}
+          </a>
         </li>
     )
   } );
