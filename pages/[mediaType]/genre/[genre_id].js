@@ -33,11 +33,12 @@ export default function MediaTypePage({
       return (
         <div key={item.id}>
           <LazyLoad
-            offset={-200}
+            offset={-100}
             placeholder={<PlaceHolders title={item.name} type={thumbTypes} />}
           >
             <MediaRow
               title={item.name}
+              updateData={query.genre_id}
               mediaType="movie"
               type={thumbTypes}
               endpoint={`discover/${query.mediaType}?with_genres=${query.genre_id}&sort_by=popularity.desc&primary_release_year=2021&page=${index + 1}`}

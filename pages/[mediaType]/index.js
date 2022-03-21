@@ -31,7 +31,7 @@ export default function MediaTypePage({
       return (
         <div key={item.id}>
         <LazyLoad 
-          offset={-200}
+          offset={-100}
           placeholder={<PlaceHolders title={item.name} type={thumbTypes} />}
         >
           <MediaRow

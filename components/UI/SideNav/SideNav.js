@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
-import React from "react";
+import { useEffect } from "react";
 import { useStateContext } from "../../HBOProvider";
 import { useClickOutSide } from "../../Hooks/useClickOutSide";
 import Link from "next/link";
@@ -10,6 +10,14 @@ const SideNav = () => {
   const domNode = useClickOutSide(() => {
     globalState.setSideNavOpenAction(false);
   });
+
+  useEffect(() => {
+    if (globalState.sideNavOpen) {
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowY = "auto";
+    }
+  }, [globalState.sideNavOpen]);
 
   return (
     <>
@@ -28,23 +36,17 @@ const SideNav = () => {
         <ul className="side-nav__main">
           <li onClick={() => globalState.setSideNavOpenAction(false)}>
             <Link href="/">
-              <a  >
-                Home
-              </a>
+              <a>Home</a>
             </Link>
           </li>
           <li onClick={() => globalState.setSideNavOpenAction(false)}>
             <Link href="/movie">
-              <a  >
-                Movies
-              </a>
+              <a>Movies</a>
             </Link>
           </li>
           <li onClick={() => globalState.setSideNavOpenAction(false)}>
             <Link href="/tv">
-              <a  >
-                Series
-              </a>
+              <a>Series</a>
             </Link>
           </li>
         </ul>

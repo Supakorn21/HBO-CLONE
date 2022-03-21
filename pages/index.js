@@ -28,7 +28,7 @@ export default function Home() {
         type="front"
       />
       <LazyLoad
-        offset={-400}
+        offset={-100}
         placeholder={<PlaceHolders title="Movies" type="large-v" />}
       >
         <MediaRow
@@ -39,18 +39,18 @@ export default function Home() {
         />
       </LazyLoad>
       <LazyLoad
-        offset={-400}
+        offset={-100}
         placeholder={<PlaceHolders title="Series" type="small-v" />}
       >
         <MediaRow
           title="Series"
-          mediaType="series"
+          mediaType="tv"
           type="small-v"
           endpoint="discover/tv?sort_by=popularity.desc&primary_release_year=2022"
         />
       </LazyLoad>
       <LazyLoad
-        offset={-400}
+        offset={-100}
         placeholder={<PlaceHolders title="Action" type="small-v" />}
       >
         <MediaRow
@@ -61,7 +61,7 @@ export default function Home() {
         />
       </LazyLoad>
       <LazyLoad
-        offset={-400}
+        offset={-100}
         placeholder={<PlaceHolders title="Horror" type="large-v" />}
       >
         <MediaRow
@@ -72,7 +72,7 @@ export default function Home() {
       </LazyLoad>
       <LazyLoad
         placeholder={
-          <PlaceHolders title="Animations" type="large-h" offset={-400} />
+          <PlaceHolders title="Animations" type="large-h" offset={-100} />
         }
       >
         <MediaRow
@@ -82,7 +82,7 @@ export default function Home() {
         />
       </LazyLoad>
       <LazyLoad
-        offset={-400}
+        offset={-100}
         placeholder={<PlaceHolders title="SciFi" type="small-v" />}
       >
         <MediaRow
@@ -94,3 +94,4 @@ export default function Home() {
     </MainLayout>
   );
 }
+

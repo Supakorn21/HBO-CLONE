@@ -46,17 +46,18 @@ export default function SingleMediaPage
         type="single"
       />
       <LazyLoad
-        offset={-400}
+        offset={-100}
         placeholder={<PlaceHolders title="Movies" type="large-v" />}
       >
         <MediaRow
           title="Similar To This"
           type="small-v"
+          updateData={query.id}
           mediaType={query.mediaType}
           endpoint={`${query.mediaType === 'movie' ? 'movie' : 'tv' }/${query.id}/similar?`}
         />
       </LazyLoad>
-      <CastInfo mediaId={query.id} mediaType={query.mediaType} />
+      <CastInfo mediaId={query.id} mediaType={query.mediaType} updateData={query.id}  />
     </MainLayout>
   );
 }

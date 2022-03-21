@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useStateContext } from "../../HBOProvider";
 import { useClickOutSide } from "../../Hooks/useClickOutSide";
+import {useEffect} from 'react'
 
 const Account = (props) => {
   const globalState = useStateContext();
@@ -13,6 +14,14 @@ const Account = (props) => {
 
   //   return thumbnails;
   // };
+  useEffect(() => {
+    if (globalState.accountModalOpen) {
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowY = "auto";
+    }
+  }, [globalState.accountModalOpen]);
+
 
   return (
     <div

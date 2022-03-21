@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-const CastInfo = ({ mediaId, mediaType }) => {
+const CastInfo = ({ mediaId, mediaType, updateData }) => {
   const [loadingData, setLoadingData] = useState(true);
   const [credits, setCredits] = useState([]);
 // 63174
@@ -24,7 +24,7 @@ const CastInfo = ({ mediaId, mediaType }) => {
         console.log("Error response For Cast and Crew");
         console.log(error);
       });
-  }, [credits]);
+  }, [updateData]);
 
   const showCast = () => {
     if(loadingData !== true){

@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { shuffleArray } from "../../Utilities";
 import Link from "next/link";
 
-const MediaRow = ({ title, type, endpoint, mediaType }) => {
+const MediaRow = ({ title, type, endpoint, mediaType,updateData }) => {
   const [loadingData, setLoadingData] = useState(true);
   const [moviesData, setMoviesData] = useState([]);
 
@@ -28,7 +28,7 @@ const MediaRow = ({ title, type, endpoint, mediaType }) => {
         console.log("Error response For " + title);
         console.log(error);
       });
-  }, []);
+  }, [updateData]);
 
   const loopComp = (comp, digit) => {
     let thumbnails = [];
