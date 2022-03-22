@@ -53,8 +53,6 @@ const SearchModal = () => {
       router.push(`/${media_type}/${id}`);
       globalState.setSearchOpenAction(!globalState.searchOpen);
     }
-
-    
   };
 
   // const loopComp = (comp, digit) => {
@@ -91,7 +89,12 @@ const SearchModal = () => {
           </div>
         </div>
 
-        <h3 className="search-modal__title">  {showResults && searchData.length >= 1 ? `Search Result for ${text}` : `Popular Searches`}</h3>
+        <h3 className="search-modal__title">
+          {" "}
+          {showResults && searchData.length >= 1
+            ? `Search Result for ${text}`
+            : `Popular Searches`}
+        </h3>
 
         <div className="search-modal__thumbnails">
           {showResults && searchData.length >= 1 ? (
@@ -100,7 +103,10 @@ const SearchModal = () => {
               clickedThumbnail={clickedThumbnail}
             />
           ) : (
-            <PopularResults popData={popData}  clickedThumbnail={clickedThumbnail} />
+            <PopularResults
+              popData={popData}
+              clickedThumbnail={clickedThumbnail}
+            />
           )}
         </div>
       </div>
@@ -116,7 +122,7 @@ const PopularResults = ({ popData, clickedThumbnail }) => {
       <div
         key={index}
         className="search-modal__thumbnail"
-        onClick={() => clickedThumbnail("popular", item.id)}>
+        onClick={() => clickedThumbnail("popular", item.id)}
       >
         <img src={`https://image.tmdb.org/t/p/w185/${item.poster_path}`} />
         <div className="search-modal__top-layer">
