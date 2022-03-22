@@ -58,6 +58,8 @@ export default function MediaTypePage({
         }
         linkUrl={`/${query.mediaType}/${featuredData.id}`}
         type="single"
+        mediaId={featuredData.id}
+        mediaType={query.mediaType}
       />
       <GenreNav mediaType={query.mediaType} genresData={genresData} />
       {showRandomMedia()}

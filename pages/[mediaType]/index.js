@@ -15,7 +15,6 @@ import axios from "axios";
 import { shuffleArray } from "../../components/Utilities";
 
 export default function MediaTypePage({
-  mediaData,
   query,
   genresData,
   featuredData,
@@ -53,8 +52,11 @@ export default function MediaTypePage({
         title={
           query.mediaType === "movie" ? featuredData.title : featuredData.name
         }
+        
         linkUrl={`/${query.mediaType}/${featuredData.id}`}
         type="single"
+        mediaId={featuredData.id}
+        mediaType={query.mediaType}
       />
       <GenreNav mediaType={query.mediaType} genresData={genresData} />
       {showRandomMedia()}

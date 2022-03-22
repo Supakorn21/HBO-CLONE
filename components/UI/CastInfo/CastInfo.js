@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
+
 const CastInfo = ({ mediaId, mediaType, updateData }) => {
   const [loadingData, setLoadingData] = useState(true);
   const [credits, setCredits] = useState([]);

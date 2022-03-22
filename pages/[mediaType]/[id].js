@@ -42,6 +42,8 @@ export default function SingleMediaPage
         title={query.mediaType === "movie" ? mediaData.title : mediaData.name}
         mediaUrl={`https://image.tmdb.org/t/p/original${mediaData.backdrop_path}`}
         location="In theaters and on HBO MAX. Streaming throughout March 3."
+        mediaId={query.id}
+        mediaType={query.mediaType}
         linkUrl="/movie/id"
         type="single"
       />
