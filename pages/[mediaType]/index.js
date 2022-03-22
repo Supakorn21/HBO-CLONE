@@ -67,10 +67,10 @@ export async function getServerSideProps(context) {
   let featuredData;
   try {
     genresData = await axios.get(
-      `https://api.themoviedb.org/3/genre/${context.query.mediaType}/list?api_key=1db7688f317e15dd2ee2933dae838634&language=en-US`
+      `https://api.themoviedb.org/3/genre/${context.query.mediaType}/list?api_key=174406b9a949ae4ad6a40666c6a29393&language=en-US`
     );
     featuredData = await axios.get(
-      `https://api.themoviedb.org/3/discover/${context.query.mediaType}?primary_release_year=2022&api_key=1db7688f317e15dd2ee2933dae838634&language=en-US`
+      `https://api.themoviedb.org/3/discover/${context.query.mediaType}?primary_release_year=2022&api_key=174406b9a949ae4ad6a40666c6a29393&language=en-US`
     );
     console.log("genresData");
     console.log(genresData.data);
