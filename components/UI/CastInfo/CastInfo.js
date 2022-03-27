@@ -27,6 +27,29 @@ const CastInfo = ({ mediaId, mediaType, updateData }) => {
       });
   }, [updateData]);
 
+  const loopComp = (comp, digit) => {
+    let thumbnails = [];
+    for (let index = 1; index <= digit; index++) {
+      thumbnails.push(comp);
+    }
+
+    return thumbnails;
+  };
+
+  const showCastPic = () => {
+    return loadingData
+      ? loopComp(<Skeleton />, 10)
+      : credits.cast.slice(0,12).map((cast) => {
+          return (
+            <div className="cast-info__list-showpic-box" key={cast.id}>
+              <img className="cast-info__list-showpic-box-img" src={`https://image.tmdb.org/t/p/w185${cast.profile_path}`} alt="" />
+              <span className="cast-info__list-showpic-box-name">{cast.name}</span>
+            </div>
+          );
+        });
+  };
+
+
   const showCast = () => {
     if(loadingData !== true){
       return credits.cast.map((item) => {
@@ -65,11 +88,31 @@ const CastInfo = ({ mediaId, mediaType, updateData }) => {
   return (
     <div className="cast-info">
       <div className="cast-info__group-title">Cast</div>
-      <div className="cast-info__list">{showCast()}</div>
+      <div className="cast-info__list">
+        <div className="cast-info__list-showcast">
+        {showCast()}
+        </div>
+        <div className="cast-info__list-showpic">
+        {showCastPic()}
+        </div>
+        
+        </div>
       <div className="cast-info__group-title">Crew</div>
       <div className="cast-info__list">
-      {showCrew()}
+        <div className="cast-info__list-crew">
+        {showCrew()}
+        </div>
+      
       </div>
+      
+    </div>
+  );
+};
+
+const Skeleton = () => {
+  return (
+    <div className="media-row__thumbnail-skeleton">
+      <div className="media-row__thumbnail-skeleton-img"></div>
     </div>
   );
 };

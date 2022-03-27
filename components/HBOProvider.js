@@ -11,6 +11,7 @@ export const HBOProvider = ({ children }) => {
   const [sideNavOpen, setSideNavOpenAction] = useState(false);
   const [accountModalOpen, setAccountModalOpenAction] = useState(false);
   const [searchOpen, setSearchOpenAction] = useState(false);
+  const [reset, setReset] = useState(false)
   const [watchList, setWatchList] = useState(ls.get('myList'))
 
   const addToList = (video) => {
@@ -32,6 +33,7 @@ export const HBOProvider = ({ children }) => {
     setWatchList(myList)
   }
 
+  
 
 
   const thumbTypes = ["large-v", "small-v", "large-h", "small-h"];
@@ -60,7 +62,9 @@ export const HBOProvider = ({ children }) => {
         thumbTypes,
         addToList,
         removeFromList,
-        watchList
+        watchList,
+        reset,
+        setReset
       }}
     >
       {children}

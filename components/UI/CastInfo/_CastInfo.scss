@@ -11,8 +11,37 @@
     }
   }
   &__list{
+    display: flex;
     font-size: 1.2rem;
+    &-showcast{
+      width: 50%;
+    }
+    &-showpic{
+      width: 50%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      height: 100%;
+      &-box{
+        display: flex;
+        flex-direction: column;
 
+        
+        &-img{
+          width: 60%;
+         
+          object-fit: cover;
+          object-position: center;
+          border-radius: 5px;
+          margin-bottom: 10px;
+        }
+        &-name{
+          font-size: 0.9rem;
+          font-weight: 700;
+          margin-bottom: 1rem;
+        }
+      }
+      
+    }
   }
   &__crew{
     display: flex;
@@ -27,5 +56,11 @@
       color: rgb(200, 200, 200);
       
     }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .cast-info__list-showpic{
+    display: none;
   }
 }

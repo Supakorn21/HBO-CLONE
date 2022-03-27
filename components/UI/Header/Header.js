@@ -1,12 +1,44 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState,useEffect } from "react";
 import { useStateContext } from "../../HBOProvider";
 import Account from "../Account/Account";
 import SearchModal from "../SearchModal/SearchModal";
 import Link from "next/link";
+import { useMounted } from "../../Hooks/useMounted";
+import localStorage from "local-storage";
+import { useClickOutSide } from "../../Hooks/useClickOutSide";
 
 const Header = () => {
+  const [loadingUsers, setLoadingUsers] = useState(false);
   const globalState = useStateContext();
+
+  const users = localStorage("users") !== null ? localStorage("users") : [];
+  const { hasMounted } = useMounted();
+
+ 
+
+  useEffect(() => {
+    if (users < 1) {
+      setLoadingUsers(false);
+    }
+    console.log("load Effect", users);
+  }, []);
+
+  const selectUser = (id) => {
+    
+    localStorage("activeUID", id);
+    
+  };
+
+   const showUsers = () => {
+    if (!loadingUsers) {
+      return users.map((user) => {
+        return (
+          <div  key={user.id} className="top-header__user-name">{user.user}</div>
+        );
+      });
+    }
+  };
 
   return (
     <>
@@ -48,7 +80,7 @@ const Header = () => {
             src="https://userstock.io/data/wp-content/uploads/2020/06/jack-finnigan-rriAI0nhcbc-1024x1024.jpg"
             className="top-header__user-img"
           />
-          <div className="top-header__user-name">Tommy</div>
+          {hasMounted ? showUsers() : ""}
         </div>
         <Account />
         <SearchModal />

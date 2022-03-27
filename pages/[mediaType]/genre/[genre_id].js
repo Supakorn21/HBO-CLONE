@@ -39,7 +39,7 @@ export default function MediaTypePage({
             <MediaRow
               title={item.name}
               updateData={query.genre_id}
-              mediaType="movie"
+              mediaType={query.mediaType}
               type={thumbTypes}
               endpoint={`discover/${query.mediaType}?with_genres=${query.genre_id}&sort_by=popularity.desc&primary_release_year=2021&page=${index + 1}`}
             />

@@ -8,6 +8,8 @@ import ls from 'local-storage'
 const Account = (props) => {
   const globalState = useStateContext();
 
+
+ 
   const router = useRouter();
   // const loopComp = (comp, digit) => {
   //   let thumbnails = [];
@@ -32,7 +34,9 @@ const Account = (props) => {
 
   const signOut = () => {
     ls.remove('users')
+    
     router.push('/create')
+    globalState.setAccountModalOpenAction(false)
   }
   
 
@@ -62,6 +66,7 @@ const Account = (props) => {
 
   return (
     <div
+    
       className={`account ${
         globalState.accountModalOpen ? "account--active" : ""
       }`}
@@ -91,9 +96,9 @@ const Account = (props) => {
             </Link>
           </li>
           <li onClick={signOut}>
-            <Link  href="/" className="">
+            <a  href="/create" className="">
               Sign Out
-            </Link>
+            </a>
           </li>
         </ul>
       </div>

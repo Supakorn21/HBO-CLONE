@@ -44,7 +44,7 @@ export default function SingleMediaPage
         location="In theaters and on HBO MAX. Streaming throughout March 3."
         mediaId={query.id}
         mediaType={query.mediaType}
-        linkUrl="/movie/id"
+        linkUrl={`/${query.mediaType}/${query.id}`}
         type="single"
       />
       <LazyLoad
@@ -70,6 +70,7 @@ export async function getServerSideProps(context) {
     mediaData = await axios.get(
       `https://api.themoviedb.org/3/${context.query.mediaType}/${context.query.id}?&api_key=174406b9a949ae4ad6a40666c6a29393&language=en-US`
     );
+    console.log(mediaData)
   } catch (err) {
     console.log(err);
   }

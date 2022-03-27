@@ -10,6 +10,7 @@ const SearchModal = () => {
 
   const [popData, setPopData] = useState([]);
   const [searchData, setSearchData] = useState([]);
+  const [searchCast, setSearchCast] = useState([])
   const [showResults, setShowResults] = useState(false);
   const [text, setText] = useState("");
 
@@ -30,20 +31,39 @@ const SearchModal = () => {
   const handleInput = async (e) => {
     try {
       setText(e.target.value);
+
       let searchData = await axios.get(
         `https://api.themoviedb.org/3/search/multi?query=${e.target.value}&api_key=174406b9a949ae4ad6a40666c6a29393&language=en-US`
       );
+
+      
       setSearchData(
         searchData.data.results.filter(
           (item, i) => item.media_type === "tv" || item.media_type === "movie"
         )
       );
+      
       setShowResults(true);
     } catch (err) {
       console.log(err);
     }
   };
 
+  const handleSearchCast = async (e) => {
+    try {
+      setText(e.target.value);
+      
+      
+      
+      setShowResults(true)
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  
+ 
+
+ 
   const clickedThumbnail = (type, id, media_type) => {
     if (type === "popular") {
       router.push(`/movie/${id}`);
@@ -76,7 +96,7 @@ const SearchModal = () => {
             className="search-modal__input"
             type="text"
             placeholder="Search for a title"
-            onChange={handleInput}
+            onChange={handleInput }
             value={text}
           />
           <div
