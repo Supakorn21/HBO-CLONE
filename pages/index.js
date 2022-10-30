@@ -16,8 +16,6 @@ export default function Home() {
 
   const globalState = useStateContext();
 
-  useEffect(() => {}, []);
-
   return AuthCheck(
     <MainLayout>
       <FeaturedMedia
@@ -27,7 +25,7 @@ export default function Home() {
         linkUrl="/movie/414906"
         type="front"
         mediaId={414906}
-        mediaType={'movie'}
+        mediaType={"movie"}
       />
       <LazyLoad
         offset={-100}
@@ -96,4 +94,3 @@ export default function Home() {
     </MainLayout>
   );
 }
-

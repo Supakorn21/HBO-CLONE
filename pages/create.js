@@ -2,18 +2,13 @@ import { useStateContext } from "../components/HBOProvider";
 import localStorage from "local-storage";
 import { v4 as uuidv4 } from "uuid";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 
 export default function CreateUser() {
   const globalState = useStateContext();
 
   const router = useRouter();
 
-  useEffect(() => {
-    document.getElementsByClassName('create-user__inputText').value=""
-    
-  }, [])
-  
+ 
 
   const saveUser = () => {
     let users = [],

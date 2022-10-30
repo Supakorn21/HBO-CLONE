@@ -96,9 +96,9 @@ const Account = (props) => {
             </Link>
           </li>
           <li onClick={signOut}>
-            <a  href="/create" className="">
-              Sign Out
-            </a>
+            <Link  href="/create" className="">
+              <a>Sign Out</a>
+            </Link>
           </li>
         </ul>
       </div>
